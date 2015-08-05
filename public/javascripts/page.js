@@ -2,9 +2,12 @@
 	
   var newForm = $("<form>");
 
+  var listDiv = $("<div>");
+  listDiv.attr("class", "res-list");
+
   var makeDiv = function(labelName, labelInnerHTML, inputType) {
     var newDiv = $('<div>');
-    newDiv.attr("id", "badge");
+    newDiv.attr("id", "userName");
 
     var newLabel = $('<label>');
     newLabel.attr("for", "labelName");
@@ -30,6 +33,7 @@
   // append the div to the new form, and then append the new form to the document body
   $(newForm).append(makeDiv("name", "Username: ", "text"));
   $(document.body).append(newForm);
+  $(document.body).append(listDiv);
 
   var theForm = ($("form").get()[0]);
   $(theForm).submit(function(event) {
@@ -53,8 +57,8 @@
             
             badgeName.text(text.badges[i].name);
 
-            $(document.body).append(badgeName);
-            $(document.body).append(badgeImage);
+            $(badgeName).appendTo('.res-list');
+            $(badgeImage).appendTo('.res-list');
 
             $(badgeImage).css("height", "50px");
             counter++;
@@ -65,26 +69,15 @@
           $(document.body).append(results);
           $(results).insertBefore(theForm.nextSibling);
           results.text("You have " + counter + " badges!");
-          results.attr("id", "resultFormat")
-          console.log(results);
-
+          results.attr("id", "resultText");
           if (counter > 20) {
-            results.text += (" Way to go, tiger!")
+            results.text += (" Way to go, tiger!");
           }
           else {
-            results.text += (" Not too shabby!")
+            console.log(results);
+            results.text += (" Not too shabby!");
           }
-
         } //closes success function
       }); // closes ajax request
-
-  
-    // }); // close $("request").load(function() {
-
-    
-
   }); // close event listener
-
-
-
 })();// This is the closing bracket for the original function at the top.

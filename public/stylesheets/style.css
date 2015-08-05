@@ -7,23 +7,28 @@ a {
   color: #00B7FF;
 }
 
-#resultFormat {
+#resultText {
   color: #E84700;
   font-size: 26px;
   font-weight: bold;
 }
 
-.imgStyle {
+.res-list {
 	display: flex;
-	flex-flow: row wrap;
+	flex-flow: column nowrap;
+	max-width: 70%;
 }
 
-.badgeImage {
-
+.res-list:nth-child(even) {
+	color: red;
 }
 
-p .badgeName {
-  color: red;
+/*.res-list:nth-child(even) {
+	margin-right: 25px;
+}*/
 
+.imgStyle {
+	margin: 10px;
+	height: 10em;
+	width: 3em;
 }
-

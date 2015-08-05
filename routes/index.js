@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: "Here's the Treehouse Username Information!" });
+  res.render('index', { title: "Treehouse Badge Lookup" });
 });
 
 module.exports = router;
